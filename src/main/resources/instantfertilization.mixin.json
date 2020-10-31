@@ -1,0 +1,16 @@
+{
+	"required": true,
+	"package": "io.github.haykam821.instantfertilization.mixin",
+	"compatibilityLevel": "JAVA_8",
+	"mixins": [
+		"AbstractPlantStemBlockMixin",
+		"CocoaBlockMixin",
+		"CropBlockMixin",
+		"SaplingBlockMixin",
+		"SaplingLikeBlockMixin",
+		"SweetBerryBushBlockMixin"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	}
+}

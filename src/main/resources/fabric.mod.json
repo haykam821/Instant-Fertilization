@@ -1,0 +1,23 @@
+{
+	"schemaVersion": 1,
+	"id": "instantfertilization",
+	"version": "${version}",
+	"name": "Instant Fertilization",
+	"description": "Allows bone meal to completely fertilize crops instantly.",
+	"authors": [
+		"haykam821"
+	],
+	"contact": {
+		"homepage": "https://github.com/haykam821/Instant-Fertilization#readme",
+		"issues": "https://github.com/haykam821/Instant-Fertilization/issues"
+	},
+	"mixins": [
+		"instantfertilization.mixin.json"
+	],
+	"license": "MIT",
+	"icon": "assets/instantfertilization/icon.png",
+	"depends": {
+		"fabricloader": ">=0.4.0",
+		"fabric-tag-extensions-v0": "*"
+	}
+}
