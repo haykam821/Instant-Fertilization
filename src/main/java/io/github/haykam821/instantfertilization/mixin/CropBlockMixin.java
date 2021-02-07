@@ -14,13 +14,19 @@ import net.minecraft.world.World;
 @Mixin(CropBlock.class)
 public abstract class CropBlockMixin {
 	@Shadow
+	public abstract int getMaxAge();
+
+	@Shadow
+	public abstract int getAge(BlockState state);
+
+	@Shadow
 	public abstract int getGrowthAmount(World world);
 
 	@Redirect(method = "applyGrowth", at = @At(value = "INVOKE", target = "Lnet/minecraft/block/CropBlock;getGrowthAmount(Lnet/minecraft/world/World;)I"))
 	private int increaseGrowthAmount(CropBlock block, World passedWorld, World world, BlockPos pos, BlockState state) {
 		if (!state.isIn(Main.INSTANT_FERTILIZATION_BLACKLIST)) {
-			return Integer.MAX_VALUE;
+			return this.getMaxAge() - this.getAge(state);
 		}
-		return ((CropBlockMixin) (Object) block).getGrowthAmount(passedWorld);
+		return this.getGrowthAmount(passedWorld);
 	}
 }
